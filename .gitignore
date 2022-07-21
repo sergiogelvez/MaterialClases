@@ -32,4 +32,4 @@
 *.app
 
 # Miscellaneous
-*vscode
+.vscode
