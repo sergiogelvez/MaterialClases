@@ -19,8 +19,8 @@ int main()
     cin >> palabra2;
     textoR = texto;
     size_t pos = 0;
-    std::string token;
-    std::string delimitador = " ";
+    string token;
+    string delimitador = " ";
     vector<string> frase;
     while ((pos = textoR.find(delimitador)) != std::string::npos) {
         token = textoR.substr(0, pos);
