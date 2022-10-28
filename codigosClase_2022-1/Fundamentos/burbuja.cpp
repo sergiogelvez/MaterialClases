@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+// comentario de prueba para el git
+
 int main()
 {
     // semilla de los números aleatorios
