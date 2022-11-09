@@ -1,0 +1,4 @@
+12345;Winstead;Mary Elizabeth;13000000;30
+45623;Gelvez Cortes;Sergio Augusto;1300000;0
+67894;Uzumaki;Naruto;23000000;0
+34896712;Con Botas;Gato;2400000;45
