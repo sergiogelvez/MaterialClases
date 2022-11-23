@@ -1,6 +1,8 @@
 // ConsoleApplication1.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 //
 
+// git clone https://github.com/dstahlke/gnuplot-iostream.git
+
 #include <iostream>
 #include <cmath>
 // #include <curses.h>
