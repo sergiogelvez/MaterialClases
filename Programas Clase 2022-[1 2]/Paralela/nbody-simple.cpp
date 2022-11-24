@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <vector>
 
 struct Vector3
 {
@@ -40,6 +41,7 @@ int main()
 {
     // Se establecen las condiciones iniciales de la simulación, las "Semillas"
     OrbitalEntity* orbital_entities;
+    std::vector<Vector3> trajectories;
     int N_ASTEROIDS = 0;
     // N_ASTEROIDS es para agregar más cuerpos.
     orbital_entities = (OrbitalEntity*)malloc(sizeof(OrbitalEntity) * (9 + N_ASTEROIDS));
@@ -57,6 +59,21 @@ int main()
     // más condiciones iniciales, tiempo inicial, final, paso de tiempo, etc
     double t_0 = 0;
     double t = t_0;
+
+    std::cout << "Estado inicial:" << std::endl;
+    for (size_t entity_idx = 0; entity_idx < 9 + N_ASTEROIDS; entity_idx++)
+    {
+        std::cout << "Particula " << entity_idx << ", tiempo " << t << 
+        " : (" << orbital_entities[entity_idx].e[0] << "," << orbital_entities[entity_idx].e[1] << "," << orbital_entities[entity_idx].e[2] << ")" << '\n';
+    }
+
+    Vector3 pos_3;
+    pos_3.e[0] = orbital_entities[3].e[0];
+    pos_3.e[1] = orbital_entities[3].e[1];
+    pos_3.e[2] = orbital_entities[3].e[2];
+    trajectories.push_back(pos_3);
+
+    // más condiciones iniciales, tiempo inicial, final, paso de tiempo, etc
     double dt = 86400;
     double t_end = 86400 * 365 * 10; // approximately a decade in seconds
     double BIG_G = 6.67e-11; // gravitational constant
@@ -105,20 +122,36 @@ int main()
     // acá se calculan las posiciones para todas las particulas, a partir de las velocidades generadas.
         for (size_t entity_idx = 0; entity_idx < 9 + N_ASTEROIDS; entity_idx++)
         {
-            if (t == 0 || t == t_end - dt) // machetin: solo imprimir las posiciones iniciales y finales y comparar
-            {
-                std::cout << "Particula " << entity_idx << ", tiempo " << t << " : (" << orbital_entities[entity_idx].e[0] << "," << orbital_entities[entity_idx].e[1] << "," << orbital_entities[entity_idx].e[0] << ")" << '\n';
-            }
-
             orbital_entities[entity_idx].e[0] += orbital_entities[entity_idx].e[3] * dt;
             orbital_entities[entity_idx].e[1] += orbital_entities[entity_idx].e[4] * dt;
             orbital_entities[entity_idx].e[2] += orbital_entities[entity_idx].e[5] * dt;
-            
+            if (t == 0 || t == t_end - dt ) // machetin: solo imprimir las posiciones iniciales y finales y comparar
+            {
+                std::cout << "Particula " << entity_idx << ", tiempo " << t + dt << " : (" << orbital_entities[entity_idx].e[0] << "," << orbital_entities[entity_idx].e[1] << "," << orbital_entities[entity_idx].e[2] << ")" << '\n';
+            }    
         }
     
         // una vez terminado esto, se avanza en el tiempo.
         t += dt;
+        pos_3.e[0] = orbital_entities[3].e[0];
+        pos_3.e[1] = orbital_entities[3].e[1];
+        pos_3.e[2] = orbital_entities[3].e[2];
+        trajectories.push_back(pos_3);
         // acá debería haber una estructura para guardar las posiciones para cada t.
     }
+    std::cout << "Número de puntos de la trayectoria para el planeta 3: " << trajectories.size() << ", tiempo total: " << trajectories.size() * dt << std::endl; 
+    auto posi = trajectories[0];
+    std::cout << "Particula " << 3 << ", tiempo " << 0 << " : (" << posi.e[0] << "," << posi.e[1] << "," << posi.e[2] << ")" << '\n';
+    auto posf = trajectories.end() - 1;
+    std::cout << "Particula " << 3 << ", tiempo " << t << " : (" << posf->e[0] << "," << posf->e[1] << "," << posf->e[2] << ")" << '\n';
+    std::cout << "******* Imprimir toda la trayectoria: *******" << '\n'; 
+    int i = 0;
+    for (auto ii : trajectories)
+    {
+        if (i == 0 || i == 1)
+            std::cout << "Particula " << 3 << ", tiempo " << i * dt << " : (" << ii.e[0] << "," << ii.e[1] << "," << ii.e[2] << ")" << '\n';
+        i = i + 1;
+    }
+    std::cout << i;
     return 0;
 }
