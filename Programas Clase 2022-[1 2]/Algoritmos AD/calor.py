@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cmath>
 
-import matplotlib.pyplot as plt
 import numpy as np
 import math
+import matplotlib.pyplot as plt
 
 
 def uInicial(x) :
@@ -16,8 +16,7 @@ nsteps = 100
 largo = 200
 dx = largo / m
 tmax = nsteps * dt
-    #std::cout << " El dx es " << dx << " el dt es " << dt << " y el tiempo máximo es " << tmax << " \n";
-
+print(f"El dx es {dx}, el dt es {dt} y el tiempo máximo es {tmax}")
     
 if (dt <= (dx * dx) / 2) :
     U = np.zeros([m, nsteps])
