@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # read input image
-img = cv2.imread('leaf1.jpg')
+img = cv2.imread('Programas Clase 2022-[1 2]/Algoritmos AD/leaf1.jpg')
 
 print(img)
 print(type(img))

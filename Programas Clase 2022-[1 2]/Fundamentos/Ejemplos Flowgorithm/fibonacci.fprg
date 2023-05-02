@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-04-10 03:28:40 p.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMy02OzIwMjMtMDQtMTA7MDI6NTk6MzUgcC7CoG0uOzIzMjI="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMy02OzIwMjMtMDQtMTA7MDM6Mjg6NDAgcC7CoG0uOzk7MjQzMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nterminos, ultimo, penultimo, i, temporal" type="Integer" array="False" size=""/>
+            <input variable="nterminos"/>
+            <assign variable="ultimo" expression="1"/>
+            <assign variable="penultimo" expression="1"/>
+            <assign variable="i" expression="2"/>
+            <if expression="nterminos != 0">
+                <then>
+                    <output expression="penultimo" newline="True"/>
+                    <while expression="i &lt;= nterminos">
+                        <output expression="ultimo" newline="True"/>
+                        <assign variable="temporal" expression="ultimo + penultimo"/>
+                        <assign variable="penultimo" expression="ultimo"/>
+                        <assign variable="ultimo" expression="temporal"/>
+                        <assign variable="i" expression="i + 1"/>
+                    </while>
+                </then>
+                <else>
+                    <output expression="&quot; &quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

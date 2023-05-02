@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-04-10 02:35:56 p.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMy02OzIwMjMtMDQtMTA7MDI6MTM6MDkgcC7CoG0uOzIzMTM="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMy02OzIwMjMtMDQtMTA7MDI6MzU6NTYgcC7CoG0uOzE7MjQyNw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n1, n2, n3" type="Integer" array="False" size=""/>
+            <input variable="n1"/>
+            <input variable="n2"/>
+            <input variable="n3"/>
+            <if expression="n1 &gt; n2">
+                <then>
+                    <if expression="n1 &gt; n3">
+                        <then>
+                            <output expression="n1" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="n3" newline="True"/>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="n2 &gt; n3">
+                        <then>
+                            <output expression="n2" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="n3" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
