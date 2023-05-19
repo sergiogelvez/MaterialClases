@@ -1,3 +1,5 @@
+# basado en el ejemplo del artículo de n_body simulation de wikipedia.  Es un ejemplo "sencillo"
+
 import numpy as np
 import matplotlib.pyplot as plt
 
