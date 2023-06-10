@@ -3,10 +3,11 @@ import numpy as np
 import math as m
 import matplotlib.pyplot as plt
 
+patho = "Programas Clase 2022-[1 2]/Fundamentos/"
 archivo = "SLOFEPB.xlsx"
-print(archivo)
+print(patho + archivo)
 
-df = pd.read_excel(archivo)
+df = pd.read_excel(patho + archivo)
 
 #print(df)
 
