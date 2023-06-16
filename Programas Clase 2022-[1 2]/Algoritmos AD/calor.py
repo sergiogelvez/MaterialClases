@@ -5,6 +5,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 from matplotlib.animation import ArtistAnimation 
+import time 
 
 
 def uInicial(x) :
@@ -18,10 +19,10 @@ def uInicial(x) :
 # ojo, t: tiempos, T: temperaturas, x: posición en x en la barra, i con x, j con t
 
 tmax = 60  # segundos
-largo = 10 # metros
+largo = 50000 # metros
 
-pasos_t = 200
-pasos_x = 10
+pasos_t = 1000
+pasos_x = 50000
 
 dt = tmax / pasos_t
 dx = largo / pasos_x
@@ -38,17 +39,17 @@ if (dt <= (dx * dx) / 2) :
     print(f"Malla de simulación de ({pasos_t},{pasos_x})")
     # recordar, el primer indice es el tiempo (fila -> tiempo), y el segundo la x (columna -> espacio)
     # condición inicial de la barra
-    print(U[0, :])
+    #print(U[0, :])
     U[0, :] = uInicial(U[0, :]) # mapear la función a la primera fila usando cortes
-    print(U[0, :])
+    #print(U[0, :])
     
     # condiciones de frontera
     U[:, 0] = 473
     U[:, pasos_x - 1] = 473
 
     #recordar que si quiero incluir el 0 y el x = largo, hay que agregar un espacio más
-    print( U[:, 0], U[:, pasos_x - 1])
-    print( len(U[:, 0]), len(U[:, pasos_x - 1]))
+    #print( U[:, 0], U[:, pasos_x - 1])
+    #print( len(U[:, 0]), len(U[:, pasos_x - 1]))
     
     
     # vector de posiciones en x para graficar
@@ -56,7 +57,7 @@ if (dt <= (dx * dx) / 2) :
 
     plt.plot(x_vec, U[0])
     
-
+    temp_ini = time.perf_counter_ns()
     # primero el ciclo del tiempo
     t = 0 # se empieza en 0 porque el método evalúa en tiempo t para escribir respuesta en t + 1
     while t < pasos_t - 1 :
@@ -67,7 +68,7 @@ if (dt <= (dx * dx) / 2) :
             U[t + 1, i] = U[t, i] + k * (dt / (dx * dx)) * (U[t, i + 1] - 2 * U[t, i] + U[t, i - 1])
         print(".", end='')
         #fig.add_axes(ax)
-        plt.xlim(0, largo)
+        """ plt.xlim(0, largo)
         plt.ylim(273, 500)
         plt.plot(x_vec, U[t, :], 'b')
         plt.ylabel("Temperatura (K)")
@@ -75,18 +76,22 @@ if (dt <= (dx * dx) / 2) :
         plt.pause(.001)
         
         #ax.pause(.001)
-        plt.cla()
+        plt.cla() """
         
         t += 1
 
-    plt.xlim(0, largo)
+    temp_fin = time.perf_counter_ns()
+    print(temp_fin - temp_ini)
+
+    """ plt.xlim(0, largo)
     plt.ylim(273, 500)    
     plt.plot(x_vec, U[pasos_t - 1, :], 'b')
     plt.ylabel("Temperatura (K)")
     plt.xlabel("Distancia sobre la barra (m)")
-    plt.show()
+    plt.show() """
     
     print(U)
+    print(U[pasos_t - 1, :])
 
     
 
