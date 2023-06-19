@@ -34,3 +34,4 @@
 # Miscellaneous
 .vscode
 execs
+*.pdb
