@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="caere"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-09-07 04:19:18 p.&#160;m."/>
+        <attribute name="created" value="Y2FlcmU7TEFQVE9QLVE4RlQwRzVHOzIwMjMtMDktMDc7MDQ6MTM6MDYgcC7CoG0uOzMxNTI="/>
+        <attribute name="edited" value="Y2FlcmU7TEFQVE9QLVE4RlQwRzVHOzIwMjMtMDktMDc7MDQ6MTk6MTggcC7CoG0uOzE7MzI2OQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="v1, v2, v3" type="Integer" array="False" size=""/>
+            <input variable="v1"/>
+            <input variable="v2"/>
+            <input variable="v3"/>
+            <if expression="v1 &lt; v2">
+                <then>
+                    <if expression="v2 &lt; v3">
+                        <then>
+                            <output expression="v1 &amp; &quot; &quot; &amp; v2 &amp; &quot; &quot; &amp; v3" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="v1 &lt; v3">
+                                <then>
+                                    <output expression="v3 &amp; &quot; &quot; &amp; v1 &amp; &quot; &quot; &amp; v2" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="v1 &amp; &quot; &quot; &amp; v3 &amp; &quot; &quot; &amp; v2" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="v1 &lt; v3">
+                        <then/>
+                        <else/>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
