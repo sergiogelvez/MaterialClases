@@ -36,3 +36,6 @@
 execs
 *.pdb
 __*__
+
+# Images
+*.png
