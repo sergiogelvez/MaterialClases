@@ -115,7 +115,7 @@ pi = 4 * numba_prange_piLeibniz(n_terminos)
 # tiempo final
 t_final = perf_counter()
 t_transc = t_final - t_inicio
-print("Método numba y numpy, jit nopython, un def.")
+print("Método numba prange, jit nopython, un def.")
 pi_exp = pi
 pi_teo = np.pi
 error = 100 * abs((pi_exp - pi_teo) / pi_teo)
