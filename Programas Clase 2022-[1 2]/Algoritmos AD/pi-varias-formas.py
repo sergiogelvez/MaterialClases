@@ -1,6 +1,6 @@
 from time import perf_counter
 import numpy as np
-from numba import jit, njit, prange
+from numba import jit, njit, prange, threading_layer, set_num_threads
 
 
 def piLeibniz( n ):
@@ -24,13 +24,13 @@ def numba_numpy_piLeibniz( n ):
 
 @njit(parallel = True)
 def numba_prange_piLeibniz( n ):
+    set_num_threads(4)
     suma = 0
     for i in prange(n):
         suma += (((-1)**i) / (2*i + 1) )
     return suma
 
-n_terminos = 1000000000
-
+n_terminos = 10000000
 # se toman tiempos
 t_inicio = perf_counter()
 # método a evaluar
@@ -120,3 +120,5 @@ pi_exp = pi
 pi_teo = np.pi
 error = 100 * abs((pi_exp - pi_teo) / pi_teo)
 print(f"El valor hallado es {pi}. Se demoró {t_transc}s.  El error fue de {error}%")
+print("Threading layer chosen: %s" % threading_layer())
+
