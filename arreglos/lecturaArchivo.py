@@ -12,7 +12,6 @@ def media(A):
         return 0
 
 
-
 path = "/home/sgelvez/linuxProjekte/MaterialClases/arreglos/datos.csv"
 archivo = open(path)
 
