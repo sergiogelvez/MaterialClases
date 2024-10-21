@@ -84,7 +84,7 @@ size_t index(int filas, int cols, int ancho)
 
 int main( int argc, char** argv) {
 	// crear dos matrices guardadas en row major order, y una más para el resultado
-	int filas = 1024;
+	int filas = 2048;
 	int cols;
 	cols = filas;
 
@@ -186,6 +186,17 @@ int main( int argc, char** argv) {
 	// aca se calculó el tiempo de la GPU, ahora la prueba y la CPU
 
 
+
+
+	tinicio=clock();
+	//
+	MatMul(A,B,C);
+	//
+	t_GPU=clock();
+	tg = ((float)t_GPU-(float)tinicio)/CLOCKS_PER_SEC;
+	printf("\n\ntiempo de procesamiento (GPU), segunda vuelta: %6.3f s\n\n",tg);
+
+
 	for (i=0; i< C.width ; ++i) {
 		for (j=0; j < C.height; ++j) {
 			C_elem_GPU[index(i, j, C.width)] = C.elements[i * C.width + j];
@@ -209,7 +220,7 @@ int main( int argc, char** argv) {
 		for (j=0; j < B.width; ++j) {
 			C_elem[index(i, j, C.width)] = 0;
 			for(k=0 ; k < A.width; k++) {
-				C_elem[index(i, j, C.width)] = C_elem[index(i, j, C.width)] + A_elem[index(i, k, A.width)] * B_elem[index(k, j, B.width)];
+				//C_elem[index(i, j, C.width)] = C_elem[index(i, j, C.width)] + A_elem[index(i, k, A.width)] * B_elem[index(k, j, B.width)];
 			}
 		}
 	}
@@ -219,10 +230,10 @@ int main( int argc, char** argv) {
 	printf("\n\ntiempo de procesamiento (CPU): %6.3f s\n\n",tc);
 	printf("\n -- Matrix resultante (CPU) - (GPU) --\n");
 	for (i=0; i< C.width ; ++i) {
-		printf("\n");
+		// printf("\n");
 		for (j=0; j < C.height; ++j) {
-			printf(" %3.2f -> %3.2f ", C_elem[index(i, j, C.width)], C.elements[index(i, j, C.width)]);
+			//printf(" %3.2f -> %3.2f ", C_elem[index(i, j, C.width)], C.elements[index(i, j, C.width)]);
 		}
-		printf("\n");
+		//printf("\n");
 	}
 }
