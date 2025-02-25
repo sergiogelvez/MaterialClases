@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="fibonacci"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-13 11:32:44 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTE6MTg6NTcgYS7CoG0uOzIzMDc="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTE6MzI6NDQgYS7CoG0uOzE7MjQwNw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, ultimo, penultimo, suma" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <assign variable="penultimo" expression="0"/>
+            <assign variable="ultimo" expression="1"/>
+            <assign variable="i" expression="2"/>
+            <output expression="penultimo" newline="True"/>
+            <output expression="ultimo" newline="True"/>
+            <while expression="i &lt; n">
+                <assign variable="suma" expression="penultimo + ultimo"/>
+                <assign variable="penultimo" expression="ultimo"/>
+                <assign variable="ultimo" expression="suma"/>
+                <output expression="ultimo" newline="True"/>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

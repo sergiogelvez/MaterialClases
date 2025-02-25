@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="factorial"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-08-22 11:17:28 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MTE6MTQ6MjMgYS7CoG0uOzIzMDE="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MTE6MTc6MjggYS7CoG0uOzE7MjQxNw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="factorial, n, cont" type="Integer" array="False" size=""/>
+            <assign variable="factorial" expression="1"/>
+            <assign variable="cont" expression="1"/>
+            <input variable="n"/>
+            <while expression="cont &lt;= n">
+                <assign variable="factorial" expression="factorial * cont"/>
+                <assign variable="cont" expression="cont + 1"/>
+            </while>
+            <output expression="factorial" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

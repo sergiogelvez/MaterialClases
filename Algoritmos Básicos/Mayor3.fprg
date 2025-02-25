@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Mayor3"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-13 11:16:42 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTA6NDM6MDcgYS7CoG0uOzIyOTk="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTE6MTY6NDIgYS7CoG0uOzI7MjQwOA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, c" type="Integer" array="False" size=""/>
+            <input variable="a"/>
+            <input variable="b"/>
+            <input variable="c"/>
+            <if expression="a &gt; b">
+                <then>
+                    <if expression="b &gt; c">
+                        <then>
+                            <output expression="&quot;A &gt; B &gt; C&quot;" newline="True"/>
+                            <output expression="a &amp; &quot; &gt; &quot; &amp; b &amp; &quot; &gt; &quot; &amp; c" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="c &gt; a">
+                                <then>
+                                    <output expression="&quot;C &gt; A &gt; B&quot;" newline="True"/>
+                                    <output expression="c &amp; &quot; &gt; &quot; &amp; a &amp; &quot; &gt; &quot; &amp; b" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;A &gt; C &gt; B&quot;" newline="True"/>
+                                    <output expression="a &amp; &quot; &gt; &quot; &amp; c &amp; &quot; &gt; &quot; &amp; b" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <if expression="a &gt; c">
+                        <then>
+                            <output expression="&quot;B &gt; A &gt; C&quot;" newline="True"/>
+                            <output expression="b &amp; &quot; &gt; &quot; &amp; a &amp; &quot; &gt; &quot; &amp; c" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="c &gt; b">
+                                <then>
+                                    <output expression="&quot;C &gt; B &gt; A&quot;" newline="True"/>
+                                    <output expression="c &amp; &quot; &gt; &quot; &amp; b &amp; &quot; &gt; &quot; &amp; a" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;B &gt; C &gt; A&quot;" newline="True"/>
+                                    <output expression="b &amp; &quot; &gt; &quot; &amp; c &amp; &quot; &gt; &quot; &amp; a" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

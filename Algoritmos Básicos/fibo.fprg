@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="fibo"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-08-22 08:26:26 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MDg6MTU6MDYgYS7CoG0uOzIzMDk="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MDg6MjY6MjYgYS7CoG0uOzI7MjQyMg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nmax, cont, ultimo, penultimo, suma" type="Integer" array="False" size=""/>
+            <input variable="nmax"/>
+            <assign variable="penultimo" expression="0"/>
+            <assign variable="ultimo" expression="1"/>
+            <output expression="penultimo" newline="True"/>
+            <output expression="ultimo" newline="True"/>
+            <assign variable="cont" expression="2"/>
+            <while expression="cont &lt; nmax">
+                <assign variable="suma" expression="ultimo + penultimo"/>
+                <assign variable="penultimo" expression="ultimo"/>
+                <assign variable="ultimo" expression="suma"/>
+                <output expression="ultimo" newline="True"/>
+                <assign variable="cont" expression="cont + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="mcm2"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-20 11:20:51 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTE6MTE6MDkgYS7CoG0uOzIyOTU="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTE6MTE6MTEgYS7CoG0uOzE7Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTE6MDY6MTIgYS7CoG0uO21jbS5mcHJnOzU2MDE="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTE6MjA6NTEgYS7CoG0uOzI7MjQwMQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="mcm, i, n1, n2, max" type="Integer" array="False" size=""/>
+            <input variable="n1"/>
+            <input variable="n2"/>
+            <if expression="n1 != n2">
+                <then>
+                    <if expression="n1 &gt; n2">
+                        <then>
+                            <assign variable="max" expression="n1"/>
+                        </then>
+                        <else>
+                            <assign variable="max" expression="n2"/>
+                        </else>
+                    </if>
+                    <for variable="i" start="n1 * n2" end="max" direction="dec" step="1">
+                        <if expression="i % n1 == 0 &amp;&amp; i % n2 == 0">
+                            <then>
+                                <output expression="i" newline="True"/>
+                                <assign variable="mcm" expression="i"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </for>
+                    <output expression="mcm" newline="True"/>
+                </then>
+                <else>
+                    <assign variable="mcm" expression="n1"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

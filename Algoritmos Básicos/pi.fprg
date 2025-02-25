@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="pi"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-08-22 09:07:27 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MDk6MDI6NDcgYS7CoG0uOzIzMTE="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MDk6MDc6MjcgYS7CoG0uOzQ7MjQyNQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nmax, k" type="Integer" array="False" size=""/>
+            <declare name="suma, termino" type="Real" array="False" size=""/>
+            <input variable="nmax"/>
+            <assign variable="suma" expression="0"/>
+            <assign variable="k" expression="0"/>
+            <while expression="k &lt; nmax">
+                <assign variable="termino" expression="( (-1)^k ) / (2*k + 1)"/>
+                <assign variable="suma" expression="suma + termino"/>
+                <assign variable="k" expression="k + 1"/>
+            </while>
+            <output expression="suma * 4" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

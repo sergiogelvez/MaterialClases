@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="voltear2"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-20 11:39:18 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTE6MjE6NDQgYS7CoG0uOzIyOTU="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTE6Mzk6MTggYS7CoG0uOzI7MjQxNA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="entrada, salida" type="String" array="False" size=""/>
+            <declare name="n, i" type="Integer" array="False" size=""/>
+            <input variable="entrada"/>
+            <assign variable="n" expression="Len(entrada)"/>
+            <assign variable="i" expression="0"/>
+            <assign variable="salida" expression="&quot;&quot;"/>
+            <while expression="i &lt; n">
+                <assign variable="salida" expression="Char(entrada, i) &amp; salida"/>
+                <assign variable="i" expression="i + 1"/>
+                <output expression="salida" newline="True"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="primos (1)"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-08-22 11:31:17 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MTE6MjA6MzkgYS7CoG0uOzIzMDU="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjQtMDgtMjI7MTE6MzE6MTcgYS7CoG0uOzY7MjQxNg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i" type="Integer" array="False" size=""/>
+            <declare name="divisible" type="Boolean" array="False" size=""/>
+            <assign variable="i" expression="2"/>
+            <assign variable="divisible" expression="False"/>
+            <input variable="n"/>
+            <while expression="i &lt; n &amp;&amp; divisible == False">
+                <if expression="n % i == 0">
+                    <then>
+                        <assign variable="divisible" expression="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+            <if expression="divisible == True">
+                <then>
+                    <output expression="&quot;No es primo&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Primo&quot;" newline="True"/>
+                </else>
+            </if>
+            <output expression="i" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

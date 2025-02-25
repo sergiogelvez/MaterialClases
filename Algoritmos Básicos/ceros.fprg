@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="ceros"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-20 10:15:14 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTA6MTI6MzMgYS7CoG0uOzIyOTI="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTA6MTI6MzQgYS7CoG0uOzE7Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTA6MDU6MjMgYS7CoG0uO3ZvbHRlYXIxLmZwcmc7NjEwMw=="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMjA7MTA6MTU6MTQgYS7CoG0uOzM7MjQwNA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, r, m, factor" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <assign variable="m" expression="0"/>
+            <assign variable="factor" expression="1"/>
+            <while expression="n &gt; 0">
+                <assign variable="r" expression="n % 10"/>
+                <assign variable="n" expression="n / 10"/>
+                <assign variable="m" expression="m + factor * r"/>
+                <assign variable="factor" expression="factor * 10"/>
+            </while>
+            <output expression="m" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

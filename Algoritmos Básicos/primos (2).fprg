@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="primos (2)"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-13 10:39:07 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTA6Mjk6NTQgYS7CoG0uOzIzMDU="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTA6Mzk6MDcgYS7CoG0uOzI7MjQxMw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, divisores" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <assign variable="divisores" expression="0"/>
+            <assign variable="i" expression="1"/>
+            <while expression="i &lt;= n">
+                <if expression="n % i == 0">
+                    <then>
+                        <assign variable="divisores" expression="divisores + 1"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+            <output expression="divisores" newline="True"/>
+            <if expression="divisores == 2">
+                <then>
+                    <output expression="&quot;Primo&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;No primo&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

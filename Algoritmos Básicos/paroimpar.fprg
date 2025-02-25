@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="paroimpar"/>
+        <attribute name="authors" value="CENTIC"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-13 10:29:37 a.&#160;m."/>
+        <attribute name="created" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTA6MTA6MDkgYS7CoG0uOzIyOTU="/>
+        <attribute name="edited" value="Q0VOVElDO0hCMi01OzIwMjUtMDItMTM7MTA6Mjk6MzcgYS7CoG0uOzI7MjQxNQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="N" type="Integer" array="False" size=""/>
+            <input variable="N"/>
+            <if expression="N % 2 == 0">
+                <then>
+                    <output expression="N &amp; &quot; es Par&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="N &amp; &quot; es Impar&quot;" newline="True"/>
+                </else>
+            </if>
+            <output expression="&quot;Fin&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
