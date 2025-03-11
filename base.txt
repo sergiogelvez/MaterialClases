@@ -6,3 +6,4 @@ Brest
 Toulouse
 
 # Lyon
+# Clermond-Ferrand
