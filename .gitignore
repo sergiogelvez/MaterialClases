@@ -39,3 +39,6 @@ __*__
 
 # Images
 *.png
+
+# Python 
+.venv
