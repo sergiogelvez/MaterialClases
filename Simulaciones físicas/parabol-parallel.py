@@ -1,7 +1,29 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
+from numba import njit, prange, set_num_threads, get_num_threads
 from time import perf_counter
+
+
+@njit(parallel = True)
+def calcular_t(Rfila, v, T, a, dt):
+    # Rfila se refiere a las posiciones para un tiempo t, para todas las partículas
+    tr = get_num_threads()
+    set_num_threads(tr)
+    RfilaSig = np.zeros_like(Rfila)
+    for j in prange(nbodies) :  # acá el ciclo que recorre cada una de las trayectorias
+        # cinematica en y
+        v[:, 1] = v[:, 1] + a * dt
+        RfilaSig[j, 1] = Rfila[j, 1] + v[j, 1] * dt
+        # cinematica en x
+        RfilaSig[j, 0] = Rfila[j, 0] + v[j, 0] * dt
+        # descartamos las posiciones con y negativo
+        if RfilaSig[j, 1] < 0 :
+            RfilaSig[j, 1] = 0
+    return RfilaSig, v
+    
+
+
+
 
 n = 100 # numero de pasos de tiempo
 t0 = 0
@@ -45,27 +67,20 @@ v = v0
 print(f"paso de tiempo: {dt}")
 print(f"Para t = {T[0]} | x = {R[0, :, 0]} | y = {R[0, :, 1]}")
 
-cutoff = 0
+cutoff = n
 
-# calculo del tiempo de ejecución
 t0 = perf_counter()
 # acá tenemos mucha flexibilidad porque el calculo de cada trayectoria se asume independiente de los demás
 for i in range(1, n) : # el ciclo que recorre todos los pasos de tiempo
-    for j in range(nbodies) :  # acá el ciclo que recorre cada una de las trayectorias
-        # cinematica en y
-        v[:, 1] = v[:, 1] + a * dt
-        R[i, j, 1] = R[i - 1, j, 1] + v[j, 1] * dt
-        # cinematica en x
-        R[i, j, 0] = R[i -1, j, 0] + v[j, 0] * dt
-        # avance del tiempo
-        T[i] = T[i - 1] + dt
-        # descartamos las posiciones con y negativo
-        if R[i, j, 1] < 0 :
-            R[i, j, 1] = 0
+    # Calcular para todas las particulas en x y y, para paso t
+    R[i, :, :], v = calcular_t(R[i - 1, :, :], v, T[i - 1], a, dt)
+    # avance del tiempo
+    T[i] = T[i - 1] + dt
     # para evitar generar muchos puntos de más
     if (R[i, :, 1] <= 0).all():
         cutoff = i
         break
+    
 tf = perf_counter()
 
 """ print(R)
