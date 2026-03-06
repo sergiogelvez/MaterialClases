@@ -6,7 +6,7 @@ SERVIDOR = '127.0.0.1'  # cambiar si es otra máquina
 PORT = 9002
 
 def main():
-    contexto = SSL.Context(SSL.TLSv1_2_METHOD)
+    contexto = SSL.Context(SSL.DTLS_CLIENT_METHOD)
     # Cargar certificado del servidor como confiable
     contexto.load_verify_locations('certificado.pem')
     # Para laboratorio, no verificamos el hostname
@@ -42,7 +42,7 @@ def main():
         conn_dtls.shutdown()
         print('Sesión DTLS cerrada')
 
-    except SSL.Error as e:
+    except Exception as e:
         print(f'Error DTLS: {e}')
     finally:
         sock.close()

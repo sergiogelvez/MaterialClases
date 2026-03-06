@@ -5,7 +5,7 @@ HOST = '0.0.0.0'
 PORT = 9002
 
 def crear_contexto_dtls():
-    contexto = SSL.Context(SSL.TLSv1_2_METHOD)
+    contexto = SSL.Context(SSL.DTLS_SERVER_METHOD)
     contexto.set_verify(SSL.VERIFY_NONE, lambda *args: True)
     contexto.use_certificate_file('certificado.pem')
     contexto.use_privatekey_file('clave.pem')
