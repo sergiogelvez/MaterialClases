@@ -33,6 +33,7 @@
 
 # Miscellaneous
 .vscode
+.zed
 execs
 *.pdb
 __*__
