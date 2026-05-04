@@ -1,12 +1,13 @@
+#include <iostream>
 #include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <time.h>
 
 int main()
 {
     int n, i;
-    printf("Introduzca el número de elementos, por favor: ");
-    scanf("%d", &n);
+    std::cout << "Introduzca el número de elementos, por favor: ";
+    std::cin >> n;
     srand(time(0));
     int elementos[n];
     // generación de los n elementos, con valores enteros entre 1 y 100
@@ -21,6 +22,6 @@ int main()
         printf("%d ", elementos[i]);
     }
     printf("\n");
-    
+
     printf("Fin del programa\n");
 }
